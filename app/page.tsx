@@ -141,7 +141,8 @@ interface Step3Data {
 //   interface Element {}
 // }
 
-export default function HomePage(): JSX.Element {
+export default function HomePage() {
+  
   const [step, setStep] = useState<1 | 2 | 3>(1);
 
   const [idea, setIdea] = useState("");
