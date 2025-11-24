@@ -137,9 +137,9 @@ interface Step3Data {
 }
 
 // Fix JSX namespace error
-declare namespace JSX {
-  interface Element {}
-}
+// declare namespace JSX {
+//   interface Element {}
+// }
 
 export default function HomePage(): JSX.Element {
   const [step, setStep] = useState<1 | 2 | 3>(1);
