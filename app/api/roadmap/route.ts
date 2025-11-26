@@ -19,8 +19,18 @@ export async function POST(req: Request) {
       .join(", ");
 
     const prompt = `
-You are a senior software architect. Output ONLY valid JSON (no markdown).
-If unsure, infer standard SaaS / mobile / AI app architecture.
+You are a principal software architect.
+
+Your job is to generate **deep, production-grade technical documentation** including
+multiple architecture diagrams using **accurate and strict Mermaid syntax**.
+
+RETURN ONLY VALID JSON.
+NO markdown.
+NO commentary.
+
+=========================
+STRICT RULES
+=========================
 
 RULES:
 - NEVER leave arrays empty.
@@ -28,78 +38,84 @@ RULES:
 - MUST provide a detailed Build Breakdown (step-by-step guide).
 - MUST provide a complete list of API Endpoints.
 - MUST provide curated Learning Resources (YouTube & Docs).
-- MUST provide 5 distinct Mermaid diagrams for the architecture.
 - MUST be practical + realistic.
 - NEVER invent fake libraries.
 
-MERMAID SYNTAX RULES (CRITICAL):
-- Use standard Mermaid syntax.
-- **DO NOT** use special characters like '>', '<', '(', ')' inside arrow labels.
-- **BAD**: A -->|Request|> B
-- **GOOD**: A -->|Request| B
-- **BAD**: A[Client (Mobile)]
-- **GOOD**: A["Client (Mobile)"]
-- Always quote node labels if they contain spaces or special chars.
-- Ensure the diagram type (e.g., "graph TD", "sequenceDiagram") is the first line of the string.
+▶ DIAGRAM QUALITY REQUIREMENTS
+- All diagrams MUST be detailed + multi-layered.
+- Use correct Mermaid syntax ONLY.
+- All nodes must be labeled clearly.
+- Use quotes for any node with spaces: A["API Gateway"]
+- Avoid forbidden characters in arrows: NO >, <, (), {}
+- Prefer multi-node chains over simple 2-box diagrams.
+- Use 8–20 nodes per diagram (rich detail).
 
-RETURN JSON EXACTLY LIKE THIS:
+▶ DIAGRAM TYPES REQUIRED
+You MUST generate **all 5 diagrams**, each detailed:
 
+1. **highLevel**  
+   - System architecture with multiple layers: Client layer, Delivery layer (CDN), Routing layer (API Gateway), Service layer (multiple services), Data layer (DB, Cache, Search).
+
+2. **requestFlow** (sequenceDiagram)  
+   - Show a complete request lifecycle (e.g., login, create item, submit form).
+   - Include at least 5 actors: User → Client → API Gateway → Service → DB.
+
+3. **deployment**  
+   - Cloud deployment layout (Vercel, AWS Lambda, S3, RDS, Redis, Container cluster).
+   - Show scaling groups, regions, replicas.
+
+4. **apiGateway**  
+   - Explain routing to different microservices.
+   - Show request validation, rate limiting, auth middleware.
+
+5. **databaseErd** (erDiagram)  
+   - Include 5–10 tables.
+   - Show relations: 1–N, N–N.
+   - Include attributes + indexes.
+
+=========================
+STRUCTURE TO RETURN
+=========================
 {
   "featureList": [
-    {
-      "name": "",
-      "description": "",
-      "complexity": "Low | Medium | High"
-    }
+    { "name": "", "description": "", "complexity": "Low | Medium | High" }
   ],
   "buildBreakdown": [
-    {
-      "step": 1,
-      "title": "",
-      "description": "",
-      "tasks": ["", ""]
-    }
+    { "step": 1, "title": "", "description": "", "tasks": ["", ""] }
   ],
   "apiEndpoints": [
     {
-      "method": "GET | POST | PUT | DELETE",
-      "endpoint": "/api/...",
+      "method": "",
+      "endpoint": "",
       "description": "",
       "requestBody": {},
       "responseBody": {}
     }
   ],
   "resources": {
-    "youtube": [
-      { "title": "", "url": "" }
-    ],
-    "docs": [
-      { "title": "", "url": "" }
-    ]
+    "youtube": [{ "title": "", "url": "" }],
+    "docs": [{ "title": "", "url": "" }]
   },
   "diagrams": {
-    "highLevel": "graph TD...",
-    "requestFlow": "sequenceDiagram...",
-    "deployment": "graph TD...",
-    "apiGateway": "graph TD...",
-    "databaseErd": "erDiagram..."
+    "highLevel": "",
+    "requestFlow": "",
+    "deployment": "",
+    "apiGateway": "",
+    "databaseErd": ""
   }
 }
 
-DIAGRAM INSTRUCTIONS:
-1. **highLevel**: High-level system architecture (Client -> CDN -> LB -> App -> DB).
-2. **requestFlow**: Sequence diagram of a core user flow (e.g., Login or Create Item).
-3. **deployment**: Deployment diagram (Vercel/AWS/Docker containers).
-4. **apiGateway**: API Gateway routing logic.
-5. **databaseErd**: Entity Relationship Diagram for the core entities.
-
-PROJECT:
+=========================
+PROJECT INPUT
+=========================
 Idea: ${projectIdea}
 Selected Stack: ${stackType}
 Technologies: ${techList}
 
-Generate COMPLETE and ACCURATE technical specification.
+Generate a COMPLETE, ACCURATE, PRODUCTION-READY specification.
+Ensure ALL diagrams are detailed, correct, and deeply structured.
 `;
+
 
     let finalJSON: any = null;
 
