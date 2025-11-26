@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 
 const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-// FINAL ROBUST MODELS LIST (BEST → fallback)
 const MODEL_PRIORITY = [
   "llama-3.3-70b-versatile",
   "llama-3.1-8b-instant",
@@ -25,13 +24,15 @@ RULES:
 - ALWAYS propose at least 2 frontend, 2 backend, and 2 database technologies.
 - If idea is vague, infer the closest architecture.
 - Incorporate known technologies from the user when possible.
-- Always fill pros, cons, cost, difficulty.
+- Always fill pros, cons, cost, difficulty, and why (a brief explanation of why this stack is recommended).
+The 'why' field must contain 3–4 concise bullet points, each giving a specific, project-tailored reason why the chosen stack is ideal (e.g., scalability, cost-efficiency, ecosystem maturity, developer familiarity).Points must reference how the chosen technologies fit the project’s requirements.Never give generic or vague reasons.Each point must be tailored to the user’s project idea.
 - Never output tools that do not exist.
 
 SCHEMA TO FOLLOW EXACTLY:
 {
   "beginner": {
     "name": "",
+    "why": [],
     "technologies": {
       "frontend": [],
       "backend": [],
@@ -59,7 +60,6 @@ Complexity: ${complexity}
 
     let finalJSON: any = null;
 
-    // TRY MODELS IN ORDER (robust mode)
     for (const model of MODEL_PRIORITY) {
       for (let attempt = 1; attempt <= 2; attempt++) {
         try {
@@ -73,10 +73,8 @@ Complexity: ${complexity}
           let content = resp.choices?.[0]?.message?.content ?? "";
           if (!content) continue;
 
-          // Clean content (remove code fences)
           content = content.replace(/```json/gi, "").replace(/```/g, "").trim();
 
-          // Extract JSON safely
           const s = content.indexOf("{");
           const e = content.lastIndexOf("}");
           if (s === -1 || e === -1) continue;
@@ -95,7 +93,6 @@ Complexity: ${complexity}
             continue;
           }
 
-          // VALIDATION: ensure ALL stack arrays have values
           const keys = ["beginner", "mvp", "enterprise", "budget"];
           const requiredArrays = ["frontend", "backend", "database"];
 
@@ -111,14 +108,14 @@ Complexity: ${complexity}
           }
 
           if (!valid) {
-            console.log(`⚠ Model ${model} attempt ${attempt} → INVALID STACK`);
+            console.log(`Model ${model} attempt ${attempt} → INVALID STACK`);
             continue;
           }
 
           finalJSON = parsed;
           break;
         } catch (e) {
-          console.log(`⚠ Model ${model} attempt ${attempt} failed`);
+          console.log(`Model ${model} attempt ${attempt} failed`);
         }
       }
 

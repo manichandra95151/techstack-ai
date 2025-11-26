@@ -1,7 +1,6 @@
 import jsPDF from 'jspdf';
 import mermaid from 'mermaid';
 
-// Define types locally to avoid circular dependencies or missing types
 interface Feature {
     name: string;
     description: string;
@@ -50,7 +49,6 @@ export const generatePDF = async (projectIdea: string, stack: string, detail: St
     const margin = 20;
     let cursorY = 20;
 
-    // Helper to add text and advance cursor
     const addText = (text: string, fontSize: number = 12, isBold: boolean = false, color: string = '#000000') => {
         doc.setFontSize(fontSize);
         doc.setTextColor(color);
@@ -84,7 +82,6 @@ export const generatePDF = async (projectIdea: string, stack: string, detail: St
         addHeader(title);
 
         try {
-            // Sanitize code
             code = code.replace(/-->\|(.+?)\|> /g, '-->|$1| ')
                 .replace(/\]([A-Z])/g, ']\n$1');
             if (!code.includes('\n')) {
@@ -150,7 +147,6 @@ export const generatePDF = async (projectIdea: string, stack: string, detail: St
         }
     };
 
-    // --- DOCUMENT CONTENT ---
 
     // Title Page
     addText("Build Specification", 24, true, '#000000');
@@ -204,6 +200,5 @@ export const generatePDF = async (projectIdea: string, stack: string, detail: St
     await addDiagram("API Gateway", detail.diagrams.apiGateway);
     await addDiagram("Database Schema", detail.diagrams.databaseErd);
 
-    // Save
     doc.save('build-specification.pdf');
 };

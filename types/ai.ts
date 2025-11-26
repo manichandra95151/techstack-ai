@@ -3,7 +3,7 @@ export interface Variant {
   frontend: string[];
   backend: string[];
   database: string[];
-  why: string;
+  why: string[];
   pros?: string[];
   cons?: string[];
 }

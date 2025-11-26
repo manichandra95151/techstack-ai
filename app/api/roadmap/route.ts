@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 
 const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-/* Strong-to-weak fallback order */
 const MODEL_PRIORITY = [
   "llama-3.3-70b-versatile",
   "llama-3.1-8b-instant",
@@ -118,7 +117,6 @@ Generate COMPLETE and ACCURATE technical specification.
           let content = resp.choices?.[0]?.message?.content ?? "";
           if (!content) continue;
 
-          // Clean backticks
           content = content.replace(/```json/gi, "").replace(/```/g, "").trim();
 
           const start = content.indexOf("{");
@@ -139,7 +137,6 @@ Generate COMPLETE and ACCURATE technical specification.
             continue;
           }
 
-          // Validate minimal required fields
           if (!parsed?.featureList?.length) continue;
           if (!parsed?.buildBreakdown?.length) continue;
           if (!parsed?.apiEndpoints?.length) continue;
@@ -149,7 +146,7 @@ Generate COMPLETE and ACCURATE technical specification.
           finalJSON = parsed;
           break;
         } catch {
-          console.log(`⚠ Model ${model} attempt ${attempt} failed`);
+          console.log(`Model ${model} attempt ${attempt} failed`);
         }
       }
 
