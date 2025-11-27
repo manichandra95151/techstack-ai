@@ -57,11 +57,11 @@ export function Hero({
           <div>
             <label className="text-sm font-medium text-zinc-400 ml-1 mb-2 block">Project Description</label>
             <Textarea 
-              placeholder="e.g. A SaaS platform for managing freelance contracts with automated invoicing..."
+              placeholder="e.g. A SaaS HR system where companies manage employees, payroll, attendance, onboarding, and performance."
               value={idea} 
               required={true}
               onChange={e => setIdea(e.target.value)}
-              className="bg-black/50 border-white/10 focus:border-white/30 min-h-[100px] text-lg resize-none"
+              className="bg-black/50 border-white/10 focus:border-white/30 min-h-[100px] resize-none text-base md:text-lg placeholder:text-sm md:placeholder:text-base"
             />
           </div>
 
@@ -71,7 +71,7 @@ export function Hero({
               placeholder="e.g. Next.js, Supabase, Stripe"
               value={tech} 
               onChange={e => setTech(e.target.value)}
-              className="bg-black/50 border-white/10 focus:border-white/30"
+              className="bg-black/50 border-white/10 focus:border-white/30 text-base md:text-lg placeholder:text-sm md:placeholder:text-base"
             />
           </div>
 

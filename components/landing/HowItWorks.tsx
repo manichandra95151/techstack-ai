@@ -41,6 +41,36 @@ export function HowItWorks() {
           ))}
         </div>
       </div>
+
+      {/* Video Section */}
+      <div className="mt-24 max-w-5xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">
+            Watch TechStackAI Build for You
+          </h3>
+          <p className="text-zinc-400 text-lg">
+            See how your project idea evolves into full tech stacks, diagrams, and a ready-to-build plan.
+          </p>
+        </div>
+
+        <div className="relative rounded-2xl p-1 bg-gradient-to-b from-white/10 to-white/5 shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl opacity-20" />
+
+          <div className="relative bg-black/80 backdrop-blur-sm rounded-xl overflow-hidden aspect-video border border-white/10 group">
+            <video
+              src="/demo.mp4"
+              className="w-full h-full object-cover"
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          </div>
+        </div>
+      </div>
+
     </section>
   );
 }
+
