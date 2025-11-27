@@ -25,10 +25,7 @@
 
 ## 🎥 See it in Action
 
-<div align="center">
-  <img src="public/demo.gif" width="100%" />
-</div>
-
+![Demo of TechStackAI](public/demo.gif)
 
 <br />
 
