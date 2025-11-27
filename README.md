@@ -7,13 +7,16 @@
   
   <p align="center">
     <a href="https://nextjs.org">
-      <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.svg" alt="Next.js" />
+      <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.svg" alt="Next.js" />
     </a>
     <a href="https://react.dev">
       <img src="https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react" alt="React" />
     </a>
     <a href="https://tailwindcss.com">
       <img src="https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS" />
+    </a>
+    <a href="https://ui.shadcn.com">
+      <img src="https://img.shields.io/badge/shadcn%2Fui-latest-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="Shadcn UI" />
     </a>
     <a href="https://groq.com">
       <img src="https://img.shields.io/badge/Groq_AI-Llama_3-orange?style=for-the-badge&logo=openai" alt="Groq AI" />
@@ -53,8 +56,8 @@
 
 | Category | Technology |
 |----------|------------|
-| **Framework** | [Next.js 15](https://nextjs.org/) (App Router) |
-| **UI Library** | [React 19](https://react.dev/) |
+| **Framework** | [Next.js 16](https://nextjs.org/) (App Router) |
+| **UI Library** | [React 19](https://react.dev/) & [Shadcn UI](https://ui.shadcn.com/) |
 | **Styling** | [Tailwind CSS 4](https://tailwindcss.com/) |
 | **Animations** | [Framer Motion](https://www.framer.com/motion/) |
 | **AI Model** | [Groq SDK](https://groq.com/) (Llama 3 models) |
