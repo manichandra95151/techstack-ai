@@ -1,33 +1,65 @@
-# TechStack AI
+<div align="center">
+  <h1 align="center">TechStack AI</h1>
+  <h3 align="center">Architect your next big idea instantly.</h3>
+  <p align="center">
+    Stop wasting time on boilerplate. Get a complete tech stack, feature breakdown, and API specification in seconds.
+  </p>
+  
+  <p align="center">
+    <a href="https://nextjs.org">
+      <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.svg" alt="Next.js" />
+    </a>
+    <a href="https://react.dev">
+      <img src="https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react" alt="React" />
+    </a>
+    <a href="https://tailwindcss.com">
+      <img src="https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS" />
+    </a>
+    <a href="https://groq.com">
+      <img src="https://img.shields.io/badge/Groq_AI-Llama_3-orange?style=for-the-badge&logo=openai" alt="Groq AI" />
+    </a>
+  </p>
+</div>
 
-**Architect your next big idea instantly.**
+<br />
 
-TechStack AI is an intelligent architecture design tool that helps developers and founders stop wasting time on boilerplate and planning. Simply describe your project idea, and get a complete, AI-generated tech stack, feature breakdown, system architecture, and API specification in seconds.
+## 🎥 See it in Action
 
-<img width="1668" height="2542" alt="techstack-ai vercel app_" src="https://github.com/user-attachments/assets/fc7b79be-4302-4e9f-b3ca-60b8abe672b8" />
+<div align="center">
+  <img src="public/demo.gif" width="100%" />
+</div>
+
+
+<br />
 
 ## ✨ Features
 
-- **AI-Powered Stack Generation**: Get tailored tech stack recommendations (Beginner, MVP, Enterprise, Budget) based on your project requirements.
-- **Comprehensive Build Specification**:
+- 🧠 **AI-Powered Stack Generation**: Tailored tech stack recommendations (Beginner, MVP, Enterprise, Budget).
+- 📋 **Comprehensive Build Specification**:
   - **Feature Scope**: Detailed list of features with complexity ratings.
   - **Build Plan**: Step-by-step development roadmap.
   - **System Architecture**: Visual diagrams (High Level, Request Flow, Deployment, Database ERD) powered by Mermaid.js.
-  - **API Specification**: Complete API endpoint definitions with request/response examples.
-- **Interactive UI**: Beautiful, dark-mode interface built with Tailwind CSS and Framer Motion.
-- **PDF Export**: Download your complete architecture specification as a professional PDF.
-- **Contact Integration**: Built-in contact form with email delivery via Web3Forms.
+  - **API Specification**: Complete API endpoint definitions.
+- 🎨 **Interactive UI**: Beautiful, dark-mode interface built with Tailwind CSS and Framer Motion.
+- 📄 **PDF Export**: Download your complete architecture specification as a professional PDF.
+- 📧 **Contact Integration**: Built-in contact form with email delivery via Web3Forms.
+
+<br />
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
-- **UI Library**: [React 19](https://react.dev/)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **AI Model**: [Groq SDK](https://groq.com/) (Llama 3 models)
-- **Diagrams**: [Mermaid.js](https://mermaid.js.org/)
-- **PDF Generation**: [jsPDF](https://github.com/parallax/jsPDF) & [html2canvas](https://html2canvas.hertzen.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
+| Category | Technology |
+|----------|------------|
+| **Framework** | [Next.js 15](https://nextjs.org/) (App Router) |
+| **UI Library** | [React 19](https://react.dev/) |
+| **Styling** | [Tailwind CSS 4](https://tailwindcss.com/) |
+| **Animations** | [Framer Motion](https://www.framer.com/motion/) |
+| **AI Model** | [Groq SDK](https://groq.com/) (Llama 3 models) |
+| **Diagrams** | [Mermaid.js](https://mermaid.js.org/) |
+| **PDF Generation** | [jsPDF](https://github.com/parallax/jsPDF) & [html2canvas](https://html2canvas.hertzen.com/) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+
+<br />
 
 ## 🚀 Getting Started
 
@@ -51,7 +83,7 @@ TechStack AI is an intelligent architecture design tool that helps developers an
    ```
 
 3. **Set up environment variables**
-   Create a `.env.local` file in the root directory and add your keys:
+   Create a `.env.local` file in the root directory:
    ```env
    # AI Generation
    GROQ_API_KEY=your_groq_api_key_here
@@ -67,6 +99,8 @@ TechStack AI is an intelligent architecture design tool that helps developers an
 
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000) to see the app.
+
+<br />
 
 ## 📁 Project Structure
 
@@ -88,6 +122,8 @@ TechStack AI is an intelligent architecture design tool that helps developers an
 └── public/             # Static assets
 ```
 
+<br />
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -97,6 +133,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+<br />
 
 ## 📄 License
 
