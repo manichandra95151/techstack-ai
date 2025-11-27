@@ -25,7 +25,13 @@
 
 ## 🎥 See it in Action
 
-![Demo of TechStackAI](public/demo.gif)
+ <div align="center">
+  <picture>
+    <source srcset="public/demo.gif" type="image/gif">
+    <img width="100%" alt="techstack-ai vercel app_" src="https://github.com/user-attachments/assets/fc7b79be-4302-4e9f-b3ca-60b8abe672b8" />
+  </picture>
+</div>
+
 
 <br />
 
